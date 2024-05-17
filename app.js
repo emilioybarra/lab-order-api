@@ -19,6 +19,10 @@ app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(cors())
 
+app.get('/', (req, res) => {
+  res.send('Welcome to Lab Order API!!');
+});
+
 app.use('/auth', authRoutes)
 app.use('/admin', errorController.verifyJWT, adminRoutes)
 app.use('/templates', errorController.verifyJWT, templatesRoutes)
